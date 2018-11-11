@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% load static %}
+
+<style>
+body{
+  background-image: url('{% static '/img/what-the-hex.png' %}');
+  }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="container h-100">
+    <div class="row align-items-center h-100" style="padding:100px">
+        <div class="col-4 mx-auto">
+            <div class="card h-100 border-primary justify-content-center" style="background: rgba(58, 174, 106, 0.4)">
+              <div class="card-body">
+                <h5 class="card-title">Login</h5>
+              </div>
+                <form method="post">
+                    {% csrf_token %}            
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ form.as_p}}</li>
+                </ul>
+                <div class="card-body">
+                    <button type="submit">Login</button>  
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

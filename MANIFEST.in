@@ -1,0 +1,4 @@
+include LICENSE
+include README.rst
+recursive-include rajk_appman/static *
+recursive-include rajk_appman/templates *

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Rajk - Django Apps
+{% endblock %}
+
+{% load static %}
+
+{% block head %}
+<style>
+body{
+  background-image: url('{% static '/img/what-the-hex.png' %}');
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class ="row">
+        <div class="col-12" style="padding:20px">
+            <h1 style="text-align:center"> Rajk Django Apps </h1>
+        </div>
+    </div>
+    <div class="row">
+        {% for app in applist %}
+        <div class="col-s-12 col-l-3" style="padding:8px">
+            <div class="card" style="width: 18rem;height:250px;background: rgba(58, 174, 106, 0.4)">
+              <div class="card-body">
+                <h5 class="card-title">{{app.app_name}}</h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="height:100px;background: rgba(58, 174, 106, 0.4)">{{app.desc}}</li>
+              </ul>
+              <div class="card-body">
+                <a href="/{{app.link}}" class="btn btn-primary">Go</a>
+                <a href="{{app.page}}"><img src="{% static 'img/GitHub-Mark-32px.png' %}" style="float:right" alt="{{app.app_name}}"></a>
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+    <div class="row">
+</div>
+{% endblock %}
