@@ -6,6 +6,8 @@ import subprocess
 import io
 from contextlib import redirect_stdout
 
+'https://api.github.com/users/rajk-apps/repos'
+
 def update_applist(modeladmin, request, queryset):
     for u in urls.urlpatterns:
         try:
