@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import *
 from . import urls
-from pip._internal import main as pipmain
+#from pip._internal import main as pipmain
 import subprocess
 import io
 from contextlib import redirect_stdout
@@ -21,7 +21,7 @@ def update_applist(modeladmin, request, queryset):
             
             f = io.StringIO()
             with redirect_stdout(f):
-                pipmain(['show',u.app_name])
+                subprocess.call(['pip','show',u.app_name])
             out = f.getvalue()
             if 'Summary:' in out:
                 newapp.description = out.split('Summary:')[-1].split('\n')[0].strip()
@@ -42,7 +42,7 @@ def update_app(modeladmin, request, queryset):
         app_name = a.id
         f = io.StringIO()
         with redirect_stdout(f):
-            pipmain(['show',app_name])
+            subprocess.call(['pip','show',app_name])
         out = f.getvalue()
         
         if 'Home-page:' in out:

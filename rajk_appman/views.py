@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from . import urls
-from pip._internal import main as pipmain
+#from pip._internal import main as pipmain
+import subprocess
 import io
 from contextlib import redirect_stdout
 from copy import copy
@@ -18,7 +19,7 @@ def home(request):
             
             f = io.StringIO()
             with redirect_stdout(f):
-                pipmain(['show',u.app_name])
+                subprocess.call('pip show %s' %u.app_name)
             out = f.getvalue()
             if 'Summary:' in out:
                 appdic['desc'] = out.split('Summary:')[-1].split('\n')[0].strip()
