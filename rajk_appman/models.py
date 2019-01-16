@@ -1,11 +1,6 @@
 from django.db import models
 
 
-class Config(models.Model):
-    
-    last_refreshed = models.DateTimeField(blank=True,null=True)
-
-
 class App(models.Model):
     
     id = models.CharField(max_length=25,primary_key=True)
