@@ -26,14 +26,14 @@ body{
         <div class="col-s-12 col-l-3" style="padding:8px">
             <div class="card" style="width: 18rem;height:250px;background: rgba(58, 174, 106, 0.4)">
               <div class="card-body">
-                <h5 class="card-title">{{app.app_name}}</h5>
+                <h5 class="card-title">{{app.id}}</h5>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item" style="height:100px;background: rgba(58, 174, 106, 0.4)">{{app.desc}}</li>
+                <li class="list-group-item" style="height:100px;background: rgba(58, 174, 106, 0.4)">{{app.description}}</li>
               </ul>
               <div class="card-body">
                 <a href="/{{app.link}}" class="btn btn-primary">Go</a>
-                <a href="{{app.page}}"><img src="{% static 'img/GitHub-Mark-32px.png' %}" style="float:right" alt="{{app.app_name}}"></a>
+                <a href="{{app.page}}"><img src="{% static 'img/GitHub-Mark-32px.png' %}" style="float:right" alt="{{app.id}}"></a>
               </div>
             </div>
         </div>
