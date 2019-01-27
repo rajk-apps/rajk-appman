@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Rajk - Django Apps
+{% endblock %}
+
+{% load static %}
+
+{% block head %}
+<style>
+body{
+  background-image: url('{% static '/img/what-the-hex.png' %}');
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class ="row">
+        <div class="col-12" style="padding:20px">
+            <h1 style="text-align:center"> Password Page </h1>
+        </div>
+    </div>
+    <div class="row">
+        <h1>Hello {{ user.first_name }}</h1>
+    </div>
+    <hr>
+    <div class="row">
+        <form method="post">
+            {% csrf_token %}
+              {{ form.non_field_errors }}
+
+              {% for hidden_field in form.hidden_fields %}
+                {{ hidden_field.errors }}
+                {{ hidden_field }}
+              {% endfor %}
+            
+              <table border="0">
+                {% for field in form.visible_fields %}
+                <tr>
+                    <th valign="top">{{ field.label_tag }}</th>
+                    <td>
+                      {{ field.errors }}
+                      {{ field }}
+                      {{ field.help_text }}
+                    </td>
+                  </tr>
+                {% endfor %}
+              </table>
+            <br>
+            <button type="submit">Save changes</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
