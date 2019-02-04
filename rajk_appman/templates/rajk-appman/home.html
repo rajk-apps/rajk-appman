@@ -32,7 +32,7 @@ body{
                 <li class="list-group-item" style="height:100px;background: rgba(58, 174, 106, 0.4)">{{app.description}}</li>
               </ul>
               <div class="card-body">
-                <a href="/{{app.id}}" class="btn btn-primary">Go</a>
+                <a href="/{% if app.id != 'rajk_appman' %}{{app.id}}{% endif %}" class="btn btn-primary">Go</a>
                 <a href="{{app.link}}"><img src="{% static 'img/GitHub-Mark-32px.png' %}" style="float:right" alt="{{app.id}}"></a>
               </div>
             </div>
