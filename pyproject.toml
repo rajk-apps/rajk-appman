@@ -9,3 +9,7 @@ readme = "README.md"
 python = ">=3.6"
 url = "https://github.com/rajk-apps/rajk-appman"
 keywords="ci/cd"
+[build-system]
+requires = [
+    "toml >= 0.10.0"
+]
