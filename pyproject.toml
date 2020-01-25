@@ -11,5 +11,7 @@ url = "https://github.com/rajk-apps/rajk-appman"
 keywords="ci/cd"
 [build-system]
 requires = [
-    "toml >= 0.10.0"
+    "toml >= 0.10.0",
+    "setuptools >= 35.0.2",
+    "setuptools_scm >= 2.0.0, <3"
 ]
