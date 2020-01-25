@@ -10,7 +10,8 @@ from .invoke_utils import ServerConnection, use_dump_modifier_function
 
 RAJK_PASSWORD = os.environ.get("RAJK_PASSWORD")
 RAJK_RSA = os.environ.get("RAJK_RSA")
-TEST_DEPLOY_DIRECTORY = "build"
+
+TEST_DEPLOY_DIRECTORY = os.getcwd() + "/build"
 
 rajk_server_connection = ServerConnection(
     "rajk", "146.110.60.20", 2222, "/var/www/rajkdjango2/bin/python"
