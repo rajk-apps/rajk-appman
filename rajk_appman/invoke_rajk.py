@@ -205,14 +205,6 @@ def _live_deploy(c, local_tarball, current_app_fullname, dump_modifier_function=
         else:
             raise EnvironmentError("No RAJK_RSA env variable")
 
-    to_write = datetime.datetime.now().isoformat()
-
-    c.run(
-        rajk_server_connection.run_ssh_command("echo {} > /var/www/rajkdjango2/fing".format(to_write))
-    )
-
-    return None
-
     local_dump_fname = "{}/deploy_dump.json".format(TEST_DEPLOY_DIRECTORY)
     remote_dump_fname = "/var/www/rajkdjango2/deploy_dump.json"
 
