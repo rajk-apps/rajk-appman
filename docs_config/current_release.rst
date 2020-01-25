@@ -1,4 +1,4 @@
-v0.0.0
+v0.0.4
 ------
 
-- first release, yay!!
+- first release, test purposes only yet
