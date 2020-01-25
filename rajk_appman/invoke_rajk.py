@@ -171,7 +171,11 @@ def deploy(c, dump_modifier_function=None, live=False, redo_rsa=False):
     )
 
     dump_fname = "{}/dump.json".format(TEST_DEPLOY_DIRECTORY)
-    dump(c, dump_fname, True)
+
+    resp = requests.get("https://rajk.uni-corvinus.hu/djangodump.json")
+    with open(dump_fname, "wb") as fp:
+        fp.write(resp.content)
+
     if dump_modifier_function is not None:
         use_dump_modifier_function(dump_modifier_function, dump_fname)
 
