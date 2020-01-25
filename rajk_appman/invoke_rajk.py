@@ -208,7 +208,9 @@ def _live_deploy(c, local_tarball, current_app_fullname, dump_modifier_function=
     local_dump_fname = "{}/deploy_dump.json".format(TEST_DEPLOY_DIRECTORY)
     remote_dump_fname = "/var/www/rajkdjango2/deploy_dump.json"
 
+    print("stopping server")
     stop_server(c)
+    print("dumping data")
     dump(c, local_dump_fname, True)
 
     if dump_modifier_function is not None:
@@ -227,7 +229,6 @@ def _live_deploy(c, local_tarball, current_app_fullname, dump_modifier_function=
         local_tarball, remote_tarball
     )
     c.run(tar_scp_command)
-
     install_command = "/var/www/rajkdjango2/bin/pip --no-cache-dir install --upgrade {}".format(
         remote_tarball
     )

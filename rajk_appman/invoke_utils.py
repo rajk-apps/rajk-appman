@@ -19,7 +19,7 @@ class ServerConnection:
         self, local_path: str, remote_path: str, directory: bool = False
     ):
 
-        return "scp {} -P {} {} {}@{}:{} -o StrictHostKeyChecking=no".format(
+        return "scp {} -o StrictHostKeyChecking=no -P {} {} {}@{}:{}".format(
             "-r" if directory else "",
             self.port,
             local_path,
@@ -31,7 +31,7 @@ class ServerConnection:
     def copy_from_server_command(
         self, local_path: str, remote_path: str, directory: bool = False
     ):
-        return "scp {} -P {} {}@{}:{} {} -o StrictHostKeyChecking=no".format(
+        return "scp {} -o StrictHostKeyChecking=no -P {} {}@{}:{} {}".format(
             "-r" if directory else "",
             self.port,
             self.user,
